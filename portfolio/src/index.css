@@ -7,8 +7,9 @@
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: #0f172a;
+  background-color: #171717;
 }

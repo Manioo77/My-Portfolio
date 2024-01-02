@@ -16,8 +16,8 @@ export function Header() {
   return (
     <header
       className={`${
-        mode ? "border-white" : "border-black"
-      } fixed flex h-20 w-full items-center justify-center border-b-[1px]`}
+        mode ? "border-white bg-neutral-900" : "border-black bg-neutral-400"
+      } fixed z-50 flex h-20 w-full items-center justify-center border-b-[1px] `}
     >
       <div className="flex w-full max-w-7xl items-center justify-between px-4">
         <nav>
@@ -39,7 +39,7 @@ export function Header() {
                 } uppercase  no-underline transition-colors hover:text-amber-200`}
                 href="#about"
               >
-                about
+                o mnie
               </a>
             </li>
             <li className="mr-5">
@@ -49,7 +49,7 @@ export function Header() {
                 } uppercase  no-underline transition-colors hover:text-amber-200`}
                 href="#projects"
               >
-                projects
+                projekty
               </a>
             </li>
             <li className="mr-5">
@@ -59,7 +59,7 @@ export function Header() {
                 } uppercase  no-underline transition-colors hover:text-amber-200`}
                 href="#contact"
               >
-                contact
+                Kontakt
               </a>
             </li>
           </ul>
@@ -108,12 +108,19 @@ export function Header() {
                 />
               </a>
             </li>
-            <li className=" w-full max-w-6" onClick={handleChangeMode}>
+            <li className="mr-5 w-full max-w-6" onClick={handleChangeMode}>
               {mode ? (
                 <img className="w-full cursor-pointer" src={sun} alt="sun" />
               ) : (
                 <img className="w-full cursor-pointer" src={moon} alt="moon" />
               )}
+            </li>
+            <li
+              className={`w-full max-w-6 cursor-pointer ${
+                mode ? "text-white" : "text-black"
+              } `}
+            >
+              PL
             </li>
           </ul>
         </div>
