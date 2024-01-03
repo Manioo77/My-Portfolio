@@ -1,32 +1,18 @@
-import { useState } from "react";
-import sun from "../assets/sun.png";
-import moon from "../assets/moon.png";
 import logo from "../assets/logo.png";
+import moon from "../assets/moon.png";
 import github from "../assets/github.png";
 import linkedin from "../assets/linkedin.png";
 import facebook from "../assets/facebook.png";
 
-export function Header() {
-  const [mode, setMode] = useState(true);
-
-  const handleChangeMode = () => {
-    setMode((prevState) => !prevState);
-  };
-
+export function Header({ handleChangeTheme }) {
   return (
-    <header
-      className={`${
-        mode ? "border-white bg-neutral-900" : "border-black bg-neutral-400"
-      } fixed z-50 flex h-20 w-full items-center justify-center border-b-[1px] `}
-    >
+    <header className="fixed z-50 flex h-20 w-full items-center justify-center bg-neutral-200 shadow-sm shadow-emerald-900  dark:bg-neutral-900 dark:shadow-emerald-200">
       <div className="flex w-full max-w-7xl items-center justify-between px-4">
         <nav>
-          <ul className="flex flex-row items-center">
-            <li className="mr-5">
+          <ul className="flex flex-row items-center font-bold">
+            <li className="mr-5 ">
               <a
-                className={`${
-                  mode ? "text-white" : "text-black"
-                } uppercase  no-underline transition-colors hover:text-amber-200`}
+                className="uppercase text-black no-underline transition-colors hover:text-emerald-900 dark:text-white"
                 href="#home"
               >
                 home
@@ -34,9 +20,7 @@ export function Header() {
             </li>
             <li className="mr-5">
               <a
-                className={`${
-                  mode ? "text-white" : "text-black"
-                } uppercase  no-underline transition-colors hover:text-amber-200`}
+                className="uppercase text-black no-underline transition-colors hover:text-emerald-900 dark:text-white"
                 href="#about"
               >
                 o mnie
@@ -44,9 +28,7 @@ export function Header() {
             </li>
             <li className="mr-5">
               <a
-                className={`${
-                  mode ? "text-white" : "text-black"
-                } uppercase  no-underline transition-colors hover:text-amber-200`}
+                className="uppercase text-black  no-underline transition-colors hover:text-emerald-900 dark:text-white"
                 href="#projects"
               >
                 projekty
@@ -54,9 +36,7 @@ export function Header() {
             </li>
             <li className="mr-5">
               <a
-                className={`${
-                  mode ? "text-white" : "text-black"
-                } uppercase  no-underline transition-colors hover:text-amber-200`}
+                className="uppercase text-black  no-underline transition-colors hover:text-emerald-900 dark:text-white"
                 href="#contact"
               >
                 Kontakt
@@ -108,19 +88,18 @@ export function Header() {
                 />
               </a>
             </li>
-            <li className="mr-5 w-full max-w-6" onClick={handleChangeMode}>
+            {/* <li className="mr-5 w-full max-w-6">
               {mode ? (
                 <img className="w-full cursor-pointer" src={sun} alt="sun" />
               ) : (
                 <img className="w-full cursor-pointer" src={moon} alt="moon" />
               )}
-            </li>
+            </li> */}
             <li
-              className={`w-full max-w-6 cursor-pointer ${
-                mode ? "text-white" : "text-black"
-              } `}
+              onClick={handleChangeTheme}
+              className={`w-full max-w-6 cursor-pointer`}
             >
-              PL
+              <img className="w-full cursor-pointer" src={moon} alt="moon" />
             </li>
           </ul>
         </div>
