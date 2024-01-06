@@ -4,20 +4,20 @@ export function MainSection() {
   return (
     <section
       id="home"
-      className="flex w-full justify-center bg-neutral-200 dark:bg-neutral-900"
+      className="flex min-h-screen w-full justify-center bg-neutral-200 dark:bg-neutral-900"
     >
-      <div className="flex h-screen w-full max-w-screen-xl flex-wrap items-center justify-between px-4 pt-20">
+      <div className=" flex w-full  max-w-screen-xl flex-wrap  items-center justify-center pt-20 sm:w-9/12 md:justify-between 2xl:w-full">
         <img
-          className="w-96"
+          className="mt-10 w-1/2 md:w-1/2 xl:w-1/3"
           src={myPhotoFirst}
           alt="moje zdjęcie - strona główna"
         />
-        <div className="w-7/12 px-5 text-black dark:text-white">
-          <h1 className="text-7xl leading-tight">
+        <div className=" p-5 text-center text-black md:w-1/2 md:text-left xl:w-2/3 dark:text-white">
+          <h1 className="pb-3 text-4xl font-bold leading-tight lg:text-5xl 2xl:text-6xl">
             Cześć, jestem <br />
             <span className="text-emerald-900">Marek Mańka</span>
           </h1>
-          <p className="text-justify leading-relaxed">
+          <p className="text-center text-lg leading-relaxed md:text-justify">
             Moją wielką pasją jest tworzenie stron internetowych. Jako junior
             frontend developer zajmuję się nieustannie fascynującymi wyzwaniami,
             które nie tylko absorbują moją uwagę, lecz również przynoszą mi

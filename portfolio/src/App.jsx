@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-      <Header handleChangeTheme={handleChangeTheme} />
+      <Header handleChangeTheme={handleChangeTheme} theme={theme} />
       <MainSection />
       <AboutmeSection />
       <Projects />

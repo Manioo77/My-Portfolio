@@ -4,7 +4,7 @@ export function Contact() {
       id="contact"
       className="flex w-full justify-center bg-neutral-200 text-black dark:bg-neutral-900 dark:text-white"
     >
-      <div className="flex h-screen w-full max-w-screen-xl flex-col justify-center px-4 pt-28">
+      <div className="flex min-h-screen w-full max-w-screen-xl flex-col justify-center px-4 sm:w-9/12 2xl:w-full ">
         <div className="mb-5">
           <h1 className="mb-2 text-4xl ">Kontakt</h1>
           <div className="h-1 w-2/5 bg-gradient-to-r from-emerald-900"></div>
