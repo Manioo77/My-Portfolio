@@ -114,16 +114,16 @@ export function AboutmeSection() {
               )}
               {option === "Doświadczenie" && (
                 <>
-                  <div className="mb-4 text-center md:text-left">
+                  <div className="mb-4 text-justify ">
                     <h2 className="mb-1">SALESMANAGO</h2>
                     <p className="ms-4">* JUNIOR FRONT-END DEVELOPER</p>
                     <p className="ms-4">* CX & MARKETING AUTOMATION ENGINEER</p>
                   </div>
-                  <div className="mb-4 text-center md:text-left">
+                  <div className="mb-4 text-justify">
                     <h2>HAEVO</h2>
                     <p className="ms-4">* Serwisant sprzętu komputerowego</p>
                   </div>
-                  <div className="text-center md:text-left">
+                  <div className="text-justify">
                     <h2>PPG CIESZYN</h2>
                     <p className="ms-4">
                       * Laborant kontroli jakości i kolorysta
