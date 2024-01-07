@@ -27,7 +27,7 @@ export function AboutmeSection() {
     <>
       <section
         id="about"
-        className="flex w-full justify-center bg-neutral-200 text-black dark:bg-neutral-900 dark:text-white"
+        className="flex w-full  justify-center bg-neutral-200 text-black dark:bg-neutral-900 dark:text-white"
       >
         <div className="flex min-h-screen w-full max-w-screen-xl flex-col justify-center px-4 sm:w-9/12 2xl:w-full">
           <h1 className="mb-2 text-4xl">O mnie</h1>
@@ -36,7 +36,7 @@ export function AboutmeSection() {
             <div className="my-10 flex w-full justify-around rounded-full border border-black  dark:border-white">
               <button
                 onClick={handleChangeFirstOption}
-                className={`rounded-full p-1  sm:p-3 ${
+                className={`rounded-full px-1 py-2 sm:p-3 ${
                   option === "Informacje" ? "bg-emerald-900 text-white" : ""
                 } w-4/12 text-xs sm:text-base`}
               >
@@ -45,7 +45,7 @@ export function AboutmeSection() {
 
               <button
                 onClick={handleChangeSecondOption}
-                className={`rounded-full p-1  sm:p-3 ${
+                className={`rounded-full px-1 py-2 sm:p-3 ${
                   option === "Doświadczenie" ? "bg-emerald-900 text-white" : ""
                 } w-4/12 text-xs sm:text-base`}
               >
@@ -53,7 +53,7 @@ export function AboutmeSection() {
               </button>
               <button
                 onClick={handleChangeThirdOption}
-                className={`rounded-full p-1  sm:p-3 ${
+                className={`rounded-full px-1 py-2 sm:p-3 ${
                   option === "Umiejętności" ? "bg-emerald-900 text-white" : ""
                 } w-4/12 text-xs sm:text-base`}
               >
@@ -63,7 +63,7 @@ export function AboutmeSection() {
             <div className="w-full md:w-4/6">
               {option === "Informacje" && (
                 <>
-                  <p className="w-full text-center md:w-4/5 md:text-justify">
+                  <p className="text-md w-full text-justify leading-relaxed md:w-4/5 ">
                     Koder webowy z pasją do piłki nożnej, siłowni i podróży.
                     Uwielbiam filmy i górskie wędrówki. Lubie pracować w
                     zespole, ale daj mi chwilę samotności na moje kreatywne
@@ -72,39 +72,39 @@ export function AboutmeSection() {
 
                   <div className="mt-4 flex w-full flex-wrap justify-between md:w-4/5 ">
                     <div className="flex w-full flex-col sm:w-1/2">
-                      <div className="my-2 flex items-center justify-center sm:justify-start">
+                      <div className="my-2 flex items-center  sm:justify-start">
                         <img className="me-4 w-10" src={profile} alt="" />
                         <p>Marek Mańka</p>
                       </div>
-                      <div className="my-2 flex items-center justify-center sm:justify-start">
+                      <div className="my-2 flex items-center  sm:justify-start">
                         <img className="me-4 w-10" src={phone} alt="" />
                         <p>501 290 572</p>
                       </div>
-                      <div className="my-2 flex items-center justify-center sm:justify-start">
+                      <div className="my-2 flex items-center  sm:justify-start">
                         <img className="me-4 w-10" src={education} alt="" />
                         <p>
                           Master of Computer Science <br />
                           Bachelor of Computer Science
                         </p>
                       </div>
-                      <div className="my-2 flex items-center justify-center sm:justify-start">
+                      <div className="my-2 flex items-center  sm:justify-start">
                         <img className="me-4 w-10" src={email} alt="" />
                         <p>marek.manka99@gmail.com</p>
                       </div>
                     </div>
                     <div className="flex w-full flex-col sm:w-1/2">
-                      <div className="my-2 flex items-center justify-center sm:justify-start">
+                      <div className="my-2 flex items-center  sm:justify-start">
                         <img className="me-4 w-10" src={language} alt="" />
                         <p>
                           Angielski: B2 <br />
                           Polski: Native
                         </p>
                       </div>
-                      <div className="my-2 flex items-center justify-center sm:justify-start">
+                      <div className="my-2 flex items-center  sm:justify-start">
                         <img className="me-4 w-10" src={birthday} alt="" />
                         <p>27.05.1999r.</p>
                       </div>
-                      <div className="my-2 flex items-center justify-center sm:justify-start">
+                      <div className="my-2 flex items-center  sm:justify-start">
                         <img className="me-4 w-10" src={house} alt="" />
                         <p>Cieszyn, Polska</p>
                       </div>
@@ -114,16 +114,16 @@ export function AboutmeSection() {
               )}
               {option === "Doświadczenie" && (
                 <>
-                  <div className="mb-4">
+                  <div className="mb-4 text-center md:text-left">
                     <h2 className="mb-1">SALESMANAGO</h2>
                     <p className="ms-4">* JUNIOR FRONT-END DEVELOPER</p>
                     <p className="ms-4">* CX & MARKETING AUTOMATION ENGINEER</p>
                   </div>
-                  <div className="mb-4">
+                  <div className="mb-4 text-center md:text-left">
                     <h2>HAEVO</h2>
                     <p className="ms-4">* Serwisant sprzętu komputerowego</p>
                   </div>
-                  <div>
+                  <div className="text-center md:text-left">
                     <h2>PPG CIESZYN</h2>
                     <p className="ms-4">
                       * Laborant kontroli jakości i kolorysta
@@ -134,7 +134,7 @@ export function AboutmeSection() {
 
               {option === "Umiejętności" && (
                 <>
-                  <div className="mt-4 flex w-4/5 justify-between ">
+                  <div className="mt-4 flex w-full justify-between text-center md:w-4/5 md:text-left ">
                     <div className="flex w-1/2 flex-col">
                       <h2>Umiejętności techniczne</h2>
                       <ul>
@@ -168,7 +168,7 @@ export function AboutmeSection() {
               )}
             </div>
             <img
-              className="w-2/3 md:w-1/3"
+              className="w-2/3 pt-10 md:w-1/3 md:pt-0"
               src={myPhotoSecond}
               alt="moje zdjęcie - strona główna"
             />

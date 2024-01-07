@@ -8,7 +8,7 @@ export function MainSection() {
     >
       <div className=" flex w-full  max-w-screen-xl flex-wrap  items-center justify-center pt-20 sm:w-9/12 md:justify-between 2xl:w-full">
         <img
-          className="mt-10 w-1/2 md:w-1/2 xl:w-1/3"
+          className="mt-10 w-5/6 md:w-1/2 xl:w-1/3"
           src={myPhotoFirst}
           alt="moje zdjęcie - strona główna"
         />
@@ -17,7 +17,7 @@ export function MainSection() {
             Cześć, jestem <br />
             <span className="text-emerald-900">Marek Mańka</span>
           </h1>
-          <p className="text-center text-lg leading-relaxed md:text-justify">
+          <p className="text-justify text-lg leading-relaxed">
             Moją wielką pasją jest tworzenie stron internetowych. Jako junior
             frontend developer zajmuję się nieustannie fascynującymi wyzwaniami,
             które nie tylko absorbują moją uwagę, lecz również przynoszą mi
