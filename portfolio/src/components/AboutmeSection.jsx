@@ -8,20 +8,36 @@ import birthday from "../assets/icons/birthday.png";
 import house from "../assets/icons/house.png";
 import { useState } from "react";
 
-export function AboutmeSection() {
-  const [option, setOption] = useState("Informacje");
+const INFO = "Informacje";
+const EXP = "Doświadczenie";
+const SKILLS = "Umiejętności";
 
-  const handleChangeFirstOption = () => {
-    setOption("Informacje");
-  };
+const SKILLSTECH = [
+  "React, Next",
+  "JavaScript, ES6, Typescript",
+  "HTML, CSS, SASS",
+  "Tailwind, Bootstrap",
+  "REST",
+  "Axios, Fetch, Context API",
+  "Git",
+  "Python",
+  "Figma, Photoshop",
+  "SQL",
+  "Jira/Asana/Confluence",
+  "Kodowanie Maili",
+];
 
-  const handleChangeSecondOption = () => {
-    setOption("Doświadczenie");
-  };
+const SKILLSSOFT = [
+  "Motywowanie zespołu do osiągania celów",
+  "Zaangażowanie i chęć rozwoju zawodowego",
+  "Kreatywność",
+  "Umiejętność pracy w zespole",
+  "Punktualność i elastyczność",
+  "Logiczne myślenie",
+];
 
-  const handleChangeThirdOption = () => {
-    setOption("Umiejętności");
-  };
+export function AboutMeSection() {
+  const [option, setOption] = useState(INFO);
 
   return (
     <>
@@ -35,132 +51,157 @@ export function AboutmeSection() {
           <div className="flex w-full  max-w-screen-xl flex-wrap  items-center justify-center">
             <div className="my-10 flex w-full justify-around rounded-full border border-black  dark:border-white">
               <button
-                onClick={handleChangeFirstOption}
+                onClick={() => setOption(INFO)}
                 className={`rounded-full px-1 py-2 sm:p-3 ${
-                  option === "Informacje" ? "bg-emerald-900 text-white" : ""
+                  option === INFO ? "bg-emerald-900 text-white" : ""
                 } w-4/12 text-xs sm:text-base`}
               >
                 Informacje
               </button>
 
               <button
-                onClick={handleChangeSecondOption}
+                onClick={() => setOption(EXP)}
                 className={`rounded-full px-1 py-2 sm:p-3 ${
-                  option === "Doświadczenie" ? "bg-emerald-900 text-white" : ""
+                  option === EXP ? "bg-emerald-900 text-white" : ""
                 } w-4/12 text-xs sm:text-base`}
               >
                 Doświadczenie
               </button>
               <button
-                onClick={handleChangeThirdOption}
+                onClick={() => setOption(SKILLS)}
                 className={`rounded-full px-1 py-2 sm:p-3 ${
-                  option === "Umiejętności" ? "bg-emerald-900 text-white" : ""
+                  option === SKILLS ? "bg-emerald-900 text-white" : ""
                 } w-4/12 text-xs sm:text-base`}
               >
                 Umiejętności
               </button>
             </div>
             <div className="w-full md:w-4/6">
-              {option === "Informacje" && (
+              {option === INFO && (
                 <>
-                  <p className="text-md w-full text-justify leading-relaxed md:w-4/5 ">
+                  <p className="text-md w-full text-justify leading-relaxed md:pe-4 xl:w-4/5">
                     Koder webowy z pasją do piłki nożnej, siłowni i podróży.
                     Uwielbiam filmy i górskie wędrówki. Lubie pracować w
                     zespole, ale daj mi chwilę samotności na moje kreatywne
                     popisy. Zawsze uśmiechnięty i gotów na nowe wyzwania!
                   </p>
 
-                  <div className="mt-4 flex w-full flex-wrap justify-between md:w-4/5 ">
+                  <div className="mt-4 flex w-full flex-wrap items-center justify-center xl:w-4/5">
                     <div className="flex w-full flex-col sm:w-1/2">
                       <div className="my-2 flex items-center  sm:justify-start">
-                        <img className="me-4 w-10" src={profile} alt="" />
+                        <img className="me-4 w-10" src={profile} alt="avatar" />
                         <p>Marek Mańka</p>
                       </div>
                       <div className="my-2 flex items-center  sm:justify-start">
-                        <img className="me-4 w-10" src={phone} alt="" />
+                        <img className="me-4 w-10" src={phone} alt="phone" />
                         <p>501 290 572</p>
                       </div>
                       <div className="my-2 flex items-center  sm:justify-start">
-                        <img className="me-4 w-10" src={education} alt="" />
+                        <img className="me-4 w-10" src={education} alt="education" />
                         <p>
                           Master of Computer Science <br />
                           Bachelor of Computer Science
                         </p>
                       </div>
                       <div className="my-2 flex items-center  sm:justify-start">
-                        <img className="me-4 w-10" src={email} alt="" />
+                        <img className="me-4 w-10" src={email} alt="email" />
                         <p>marek.manka99@gmail.com</p>
                       </div>
                     </div>
                     <div className="flex w-full flex-col sm:w-1/2">
                       <div className="my-2 flex items-center  sm:justify-start">
-                        <img className="me-4 w-10" src={language} alt="" />
+                        <img className="me-4 w-10" src={language} alt="languages" />
                         <p>
                           Angielski: B2 <br />
                           Polski: Native
                         </p>
                       </div>
                       <div className="my-2 flex items-center  sm:justify-start">
-                        <img className="me-4 w-10" src={birthday} alt="" />
+                        <img className="me-4 w-10" src={birthday} alt="birthday" />
                         <p>27.05.1999r.</p>
                       </div>
                       <div className="my-2 flex items-center  sm:justify-start">
-                        <img className="me-4 w-10" src={house} alt="" />
+                        <img className="me-4 w-10" src={house} alt="my country" />
                         <p>Cieszyn, Polska</p>
                       </div>
                     </div>
                   </div>
                 </>
               )}
-              {option === "Doświadczenie" && (
+              {option === EXP && (
                 <>
-                  <div className="mb-4 text-center md:text-left">
-                    <h2 className="mb-1">SALESMANAGO</h2>
-                    <p className="ms-4">* JUNIOR FRONT-END DEVELOPER</p>
-                    <p className="ms-4">* CX & MARKETING AUTOMATION ENGINEER</p>
+                  <div className="text-jusify mb-4 xl:w-4/5 ">
+                    <h2 className="mb-1 text-xl font-bold uppercase text-emerald-900">
+                      salesmanago
+                    </h2>
+                    <h3 className="ms-4">JUNIOR FRONT-END DEVELOPER</h3>
+                    <p className="mb-4 ms-4 text-xs md:pe-4 md:text-sm">
+                      Kodowanie formularzy/ maili/ landing page/ skryptów
+                      dedykowanych. Testy manualne.
+                    </p>
+                    <h3 className="ms-4">CX & MARKETING AUTOMATION ENGINEER</h3>
+                    <p className="mb-3 ms-4 text-xs md:pe-4 md:text-sm">
+                      Wspieranie klientów SALESmanago, oraz pracowników działu
+                      Success w określonych kwestiach związanych z działaniem
+                      wybranych funkcjonalności na stronie klienta - skracanie
+                      czasu oczekiwania na wdrożenie funkcjonalności, kodowanie
+                      HTML i CSS (maili, landing page, itd.), wsparcie w
+                      wdrożeniach.
+                    </p>
                   </div>
-                  <div className="mb-4 text-center md:text-left">
-                    <h2>HAEVO</h2>
-                    <p className="ms-4">* Serwisant sprzętu komputerowego</p>
+                  <div className="text-jusify mb-4 xl:w-4/5">
+                    <h2 className="mb-1 text-xl font-bold uppercase text-emerald-900">
+                      haevo
+                    </h2>
+                    <h3 className="ms-4">Serwisant sprzętu komputerowego</h3>
+                    <p className="mb-3 ms-4 text-xs md:pe-4 md:text-sm">
+                      Przyjmowanie komputerów od klientów, kontakt z klientem,
+                      drobne naprawy i serwis sprzętu komputerowego.
+                    </p>
                   </div>
-                  <div className="text-center md:text-left">
-                    <h2>PPG CIESZYN</h2>
-                    <p className="ms-4">
-                      * Laborant kontroli jakości i kolorysta
+                  <div className="text-jusify mb-4 xl:w-4/5">
+                    <h2 className="mb-1 text-xl font-bold uppercase text-emerald-900 ">
+                      ppg cieszyn
+                    </h2>
+                    <h3 className="ms-4">
+                      Laborant kontroli jakości i kolorysta{" "}
+                    </h3>
+                    <p className="mb-3 ms-4 text-xs md:pe-4 md:text-sm">
+                      Wykonywanie badań produkowanych wyrobów, bieżące
+                      prowadzenie dokumentacji badań, analiza wyników.
                     </p>
                   </div>
                 </>
               )}
-
-              {option === "Umiejętności" && (
+              {option === SKILLS && (
                 <>
-                  <div className="mt-4 flex w-full justify-between text-center md:w-4/5 md:text-left ">
-                    <div className="flex w-1/2 flex-col">
-                      <h2>Umiejętności techniczne</h2>
+                  <div className="mt-4 flex w-full flex-wrap justify-between px-5 text-left sm:px-0 xl:w-4/5">
+                    <div className="flex w-full flex-col pb-5 sm:w-1/2 sm:pb-0">
+                      <h2 className="mb-5 text-xl font-bold uppercase text-emerald-900">
+                        Techniczne
+                      </h2>
                       <ul>
-                        <li>* React, Next</li>
-                        <li>* JavaScript, ES6, Typescript</li>
-                        <li>* HTML, CSS, SASS </li>
-                        <li>* Tailwind, Bootstrap</li>
-                        <li>* REST</li>
-                        <li>* Axios, Fetch, Context API</li>
-                        <li>* Git</li>
-                        <li>* Python</li>
-                        <li>* Figma, Photoshop</li>
-                        <li>* SQL </li>
-                        <li>* Jira/Asana/Confluence</li>
-                        <li>* Kodowanie Maili</li>
+                        {SKILLSTECH.map((SKILLTECH) => {
+                          return (
+                            <li key={SKILLTECH} className="mb-1 ms-4">
+                              {SKILLTECH}
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
-                    <div className="flex w-1/2 flex-col">
-                      <h2>Umiejętności miękkie</h2>
+                    <div className="flex w-full flex-col sm:w-1/2">
+                      <h2 className="mb-5 text-xl font-bold uppercase text-emerald-900">
+                        miękkie
+                      </h2>
                       <ul>
-                        <li>* Motywowanie zespołu do osiągania celów</li>
-                        <li>* Zaangażowanie i chęć rozwoju zawodowego</li>
-                        <li>* Kreatywność </li>
-                        <li>* Umiejętność pracy w zespole</li>
-                        <li>* Punktualność i elastyczność</li>
-                        <li>* Logiczne myślenie</li>
+                        {SKILLSSOFT.map((SKILLSOFT) => {
+                          return (
+                            <li className="mb-1 ms-4 md:pe-4" key={SKILLSOFT}>
+                              {SKILLSOFT}
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
                   </div>
@@ -168,7 +209,7 @@ export function AboutmeSection() {
               )}
             </div>
             <img
-              className="w-2/3 pt-10 md:w-1/3 md:pt-0"
+              className="mt-10 w-5/6 md:w-1/3 xl:mt-0 xl:w-1/3"
               src={myPhotoSecond}
               alt="moje zdjęcie - strona główna"
             />

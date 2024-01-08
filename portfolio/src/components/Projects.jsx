@@ -1,9 +1,65 @@
-import foodsApp from "../assets/foodsApp.png";
-import lksKonczyce from "../assets/lksKonczyce.png";
+import React from "react";
+import { useEffect, useState } from "react";
+import portfolio from "../assets/portfolio.png";
+import lks from "../assets/lks.png";
+import goodCook from "../assets/goodCook.png";
 import sklep from "../assets/sklep.png";
-import todolist from "../assets/todolist.png";
+import todolist from "../assets/toDoList.png";
+import code from "../assets/icons/code.png";
+import eye from "../assets/icons/eye.png";
+
+const URL = "https://api.github.com/users/manioo77/repos";
 
 export function Projects() {
+  const [projects, setProjects] = useState([]);
+
+  const reposName = [
+    "Good-Cook-App",
+    "lks-konczyce-male",
+    "My-Portfolio",
+    "Sklep-it_STELA",
+    "To-do-list-JavaScript",
+  ];
+
+  const repos = [
+    {
+      name: "My-Portfolio",
+      image: portfolio,
+    },
+    {
+      name: "lks-konczyce-male",
+      image: lks,
+      linkToPage: "https://github.com/Manioo77/lks-konczyce-male",
+    },
+    {
+      name: "Good-Cook-App",
+      image: goodCook,
+      linkToPage: "https://manioo77.github.io/Good-Cook-App/",
+    },
+    {
+      name: "Sklep-it_STELA",
+      image: sklep,
+      linkToPage: "https://manioo77.github.io/Sklep-it_STELA/",
+    },
+    {
+      name: "To-do-list-JavaScript",
+      image: todolist,
+      linkToPage: "https://manioo77.github.io/To-do-list-JavaScript/",
+    },
+  ];
+
+  useEffect(() => {
+    fetch(URL)
+      .then((res) => res.json())
+      .then((data) => {
+        const filteredData = data.filter((el) => {
+          const nameProject = el.name;
+          return reposName.includes(nameProject);
+        });
+        setProjects(filteredData);
+      });
+  }, []);
+
   return (
     <>
       <section
@@ -15,55 +71,58 @@ export function Projects() {
             <h1 className="mb-2 text-4xl">Projekty</h1>
             <div className="h-1 w-2/5 bg-gradient-to-r from-emerald-900"></div>
           </div>
-          <div className="flex w-full flex-wrap items-stretch justify-center">
-            <div className="my-2 w-full md:m-1 md:w-5/12 md:p-1">
-              <a
-                href="https://github.com/Manioo77/lks-konczyce-male"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <img
-                  className="w-full"
-                  src={lksKonczyce}
-                  alt="mój projekt lksKonczyce"
-                />
-              </a>
-            </div>
-            <div className="my-2 w-full md:m-1 md:w-5/12 md:p-1">
-              <a
-                href="https://manioo77.github.io/Good-Cook-App/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <img
-                  className="w-full"
-                  src={foodsApp}
-                  alt="mój projekt foodsApp"
-                />
-              </a>
-            </div>
-            <div className="my-2 w-full md:m-1 md:w-5/12 md:p-1">
-              <a
-                href="https://manioo77.github.io/Sklep-it_STELA/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <img className="w-full" src={sklep} alt="mój projekt sklep" />
-              </a>
-            </div>
-            <div className="my-2 w-full md:m-1 md:w-5/12 md:p-1">
-              <a
-                href="https://manioo77.github.io/To-do-list-JavaScript/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <img
-                  className="w-full"
-                  src={todolist}
-                  alt="mój projekt todolist"
-                />
-              </a>
-            </div>
+          <div className="flex w-full flex-wrap items-stretch justify-between">
+            {projects.map((project) => {
+              const repoName = project.name;
+              const checkValue = repos.find(({ name }) => name === repoName);
+              return (
+                <React.Fragment key={project.id}>
+                  <div
+                    key={project.id}
+                    className="relative my-2 w-full md:m-1 md:w-5/12"
+                  >
+                    <div className="bg-black-rgba absolute bottom-0 flex h-1/5 w-full items-center  justify-between rounded-xl  text-white">
+                      <div>
+                        <a
+                          href={project.html_url}
+                          rel="noopener noreferrer"
+                          target="_blank"
+                          className="flex justify-center"
+                        >
+                          <img
+                            src={code}
+                            className="w-2/6 cursor-pointer rounded-2xl transition-colors hover:bg-emerald-900 sm:w-1/2"
+                            alt="github_link"
+                          />
+                        </a>
+                      </div>
+                      <p className="text-sm sm:text-base">{checkValue.name}</p>
+                      <div>
+                        <a
+                          href={checkValue.linkToPage}
+                          rel="noopener noreferrer"
+                          target="_blank"
+                          className="flex justify-center"
+                        >
+                          <img
+                            src={eye}
+                            className={`${
+                              checkValue.name === "My-Portfolio" && "opacity-0"
+                            } w-2/6  rounded-2xl transition-colors hover:bg-emerald-900 sm:w-1/2`}
+                            alt="strona projektu"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                    <img
+                      className="w-full rounded-xl"
+                      src={checkValue.image}
+                      alt="projekt z githuba"
+                    />
+                  </div>
+                </React.Fragment>
+              );
+            })}
           </div>
         </div>
       </section>
