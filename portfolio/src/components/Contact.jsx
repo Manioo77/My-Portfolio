@@ -36,11 +36,13 @@ export function Contact() {
             required
             placeholder="Wpisz wiadomość"
           ></textarea>
-          <input
-            className="my-10 h-11 w-48 cursor-pointer rounded-full bg-emerald-900 text-white hover:bg-emerald-950 "
-            type="submit"
-            value="Wyślij"
-          />
+          <div className="flex justify-center md:justify-start">
+            <input
+              className="my-10 h-11 w-48 cursor-pointer rounded-full bg-emerald-900 text-white hover:bg-emerald-950 "
+              type="submit"
+              value="Wyślij"
+            />
+          </div>
         </form>
       </div>
     </section>
