@@ -1,10 +1,11 @@
 import "./App.css";
-import { AboutmeSection } from "./components/AboutmeSection";
 import { Header } from "./components/Header";
 import { MainSection } from "./components/MainSection";
 import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
+import { Footer } from "./components/Footer";
 import { useEffect, useState } from "react";
+import { AboutMeSection } from "./components/AboutmeSection";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -25,12 +26,10 @@ function App() {
     <>
       <Header handleChangeTheme={handleChangeTheme} theme={theme} />
       <MainSection />
-      <AboutmeSection />
+      <AboutMeSection />
       <Projects />
       <Contact />
-      <div className="flex items-center justify-center bg-neutral-200 text-black dark:bg-neutral-900 dark:text-white">
-        <p className="m-3 ">© Copyright Marek Mańka 2024</p>
-      </div>
+      <Footer />
     </>
   );
 }

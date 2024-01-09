@@ -6,6 +6,7 @@ export default {
     extend: {
       colors: {
         salmon: "salmon",
+        "black-rgba": "rgba(0, 0, 0, 0.54)",
       },
     },
   },

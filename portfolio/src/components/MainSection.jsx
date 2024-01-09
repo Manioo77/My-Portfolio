@@ -23,9 +23,11 @@ export function MainSection() {
             które nie tylko absorbują moją uwagę, lecz również przynoszą mi
             ogromną satysfakcję.
           </p>
-          <button className="my-6 h-11 w-48 rounded-full bg-emerald-900 text-white transition-colors hover:bg-emerald-950">
-            Pobierz CV
-          </button>
+          <a href="cv.pdf" download>
+            <button className="my-6 h-11 w-48 rounded-full bg-emerald-900 text-white transition-colors hover:bg-emerald-950">
+              Pobierz CV
+            </button>
+          </a>
         </div>
       </div>
     </section>
