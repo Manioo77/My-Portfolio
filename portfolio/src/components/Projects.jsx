@@ -10,51 +10,44 @@ import eye from "../assets/icons/eye.png";
 
 const URL = "https://api.github.com/users/manioo77/repos";
 
+const REPOS = [
+  {
+    name: "My-Portfolio",
+    image: portfolio,
+  },
+  {
+    name: "lks-konczyce-male",
+    image: lks,
+    linkToPage: "https://github.com/Manioo77/lks-konczyce-male",
+  },
+  {
+    name: "Good-Cook-App",
+    image: goodCook,
+    linkToPage: "https://manioo77.github.io/Good-Cook-App/",
+  },
+  {
+    name: "Sklep-it_STELA",
+    image: sklep,
+    linkToPage: "https://manioo77.github.io/Sklep-it_STELA/",
+  },
+  {
+    name: "To-do-list-JavaScript",
+    image: todolist,
+    linkToPage: "https://manioo77.github.io/To-do-list-JavaScript/",
+  },
+];
+
 export function Projects() {
   const [projects, setProjects] = useState([]);
-
-  const reposName = [
-    "Good-Cook-App",
-    "lks-konczyce-male",
-    "My-Portfolio",
-    "Sklep-it_STELA",
-    "To-do-list-JavaScript",
-  ];
-
-  const repos = [
-    {
-      name: "My-Portfolio",
-      image: portfolio,
-    },
-    {
-      name: "lks-konczyce-male",
-      image: lks,
-      linkToPage: "https://github.com/Manioo77/lks-konczyce-male",
-    },
-    {
-      name: "Good-Cook-App",
-      image: goodCook,
-      linkToPage: "https://manioo77.github.io/Good-Cook-App/",
-    },
-    {
-      name: "Sklep-it_STELA",
-      image: sklep,
-      linkToPage: "https://manioo77.github.io/Sklep-it_STELA/",
-    },
-    {
-      name: "To-do-list-JavaScript",
-      image: todolist,
-      linkToPage: "https://manioo77.github.io/To-do-list-JavaScript/",
-    },
-  ];
 
   useEffect(() => {
     fetch(URL)
       .then((res) => res.json())
       .then((data) => {
         const filteredData = data.filter((el) => {
-          const nameProject = el.name;
-          return reposName.includes(nameProject);
+          const projectName = el.name;
+          const repoNames = REPOS.map(({ name }) => name);
+          return repoNames.includes(projectName);
         });
         setProjects(filteredData);
       });
@@ -74,7 +67,7 @@ export function Projects() {
           <div className="flex w-full flex-wrap items-stretch justify-between">
             {projects.map((project) => {
               const repoName = project.name;
-              const checkValue = repos.find(({ name }) => name === repoName);
+              const currentRepo = REPOS.find(({ name }) => name === repoName);
               return (
                 <React.Fragment key={project.id}>
                   <div
@@ -91,15 +84,15 @@ export function Projects() {
                         >
                           <img
                             src={code}
-                            className="w-2/6 cursor-pointer rounded-2xl transition-colors hover:bg-emerald-900 sm:w-1/2"
+                            className="w-2/6 cursor-pointer rounded-2xl transition-colors hover:bg-emerald-900 xl:w-1/2"
                             alt="github_link"
                           />
                         </a>
                       </div>
-                      <p className="text-sm sm:text-base">{checkValue.name}</p>
+                      <p className="text-sm xl:text-base">{currentRepo.name}</p>
                       <div>
                         <a
-                          href={checkValue.linkToPage}
+                          href={currentRepo.linkToPage}
                           rel="noopener noreferrer"
                           target="_blank"
                           className="flex justify-center"
@@ -107,8 +100,8 @@ export function Projects() {
                           <img
                             src={eye}
                             className={`${
-                              checkValue.name === "My-Portfolio" && "opacity-0"
-                            } w-2/6  rounded-2xl transition-colors hover:bg-emerald-900 sm:w-1/2`}
+                              currentRepo.name === "My-Portfolio" && "opacity-0"
+                            } w-2/6  rounded-2xl transition-colors hover:bg-emerald-900 xl:w-1/2`}
                             alt="strona projektu"
                           />
                         </a>
@@ -116,7 +109,7 @@ export function Projects() {
                     </div>
                     <img
                       className="w-full rounded-xl"
-                      src={checkValue.image}
+                      src={currentRepo.image}
                       alt="projekt z githuba"
                     />
                   </div>
