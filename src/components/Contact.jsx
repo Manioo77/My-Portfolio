@@ -37,7 +37,7 @@ export function Contact() {
             placeholder="Wpisz wiadomość"
           ></textarea>
 
-          <input name="_formsubmit_id" type="text" style="display:none" />
+          <input name="_formsubmit_id" type="text" className="hidden" />
 
           <div className="flex justify-center md:justify-start">
             <input
