@@ -4,7 +4,7 @@ import portfolio from "../assets/portfolio.png";
 import lks from "../assets/lks.png";
 import goodCook from "../assets/goodCook.png";
 import sklep from "../assets/sklep.png";
-import todolist from "../assets/toDoList.png";
+import todolist from "../assets/toDo.png";
 import code from "../assets/icons/code.png";
 import eye from "../assets/icons/eye.png";
 
