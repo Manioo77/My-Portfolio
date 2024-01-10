@@ -25,9 +25,8 @@ export function Header({ handleChangeTheme, theme }) {
           />
 
           <div
-            className={`fixed top-0 z-40 h-full w-2/4 ${
-              mobileMenu && "translate-x-[0]"
-            } translate-x-[400px] bg-neutral-900  transition-transform sm:hidden dark:bg-neutral-200`}
+            className={`fixed  top-0 z-40 h-full w-2/4 bg-neutral-900 transition-all sm:hidden dark:bg-neutral-200 
+            ${mobileMenu === false ? "-right-1/2" : "right-0"} 	`}
           >
             <nav className="flex h-full flex-col items-center justify-center">
               <ul className="flex flex-col items-center justify-center text-sm font-bold lg:text-base">

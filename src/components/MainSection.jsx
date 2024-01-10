@@ -25,7 +25,7 @@ export function MainSection() {
           </p>
           <div className="flex justify-center md:justify-start">
             <a
-              href="cv.pdf"
+              href="CV_Marek_Mańka.pdf"
               download
               className="my-6 flex h-11 w-48 items-center justify-center rounded-full bg-emerald-900 text-white transition-colors hover:bg-emerald-950"
             >

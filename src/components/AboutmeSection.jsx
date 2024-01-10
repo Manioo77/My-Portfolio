@@ -43,7 +43,7 @@ export function AboutMeSection() {
     <>
       <section
         id="about"
-        className="flex w-full  justify-center bg-neutral-200 text-black dark:bg-neutral-900 dark:text-white"
+        className="flex w-full justify-center bg-neutral-200 text-black dark:bg-neutral-900 dark:text-white"
       >
         <div className="flex min-h-screen w-full max-w-screen-xl flex-col justify-center px-4 sm:w-9/12 2xl:w-full">
           <h1 className="mb-2 text-4xl">O mnie</h1>
@@ -97,7 +97,11 @@ export function AboutMeSection() {
                         <p>501 290 572</p>
                       </div>
                       <div className="my-2 flex items-center  sm:justify-start">
-                        <img className="me-4 w-10" src={education} alt="education" />
+                        <img
+                          className="me-4 w-10"
+                          src={education}
+                          alt="education"
+                        />
                         <p>
                           Master of Computer Science <br />
                           Bachelor of Computer Science
@@ -110,18 +114,30 @@ export function AboutMeSection() {
                     </div>
                     <div className="flex w-full flex-col sm:w-1/2">
                       <div className="my-2 flex items-center  sm:justify-start">
-                        <img className="me-4 w-10" src={language} alt="languages" />
+                        <img
+                          className="me-4 w-10"
+                          src={language}
+                          alt="languages"
+                        />
                         <p>
                           Angielski: B2 <br />
                           Polski: Native
                         </p>
                       </div>
                       <div className="my-2 flex items-center  sm:justify-start">
-                        <img className="me-4 w-10" src={birthday} alt="birthday" />
+                        <img
+                          className="me-4 w-10"
+                          src={birthday}
+                          alt="birthday"
+                        />
                         <p>27.05.1999r.</p>
                       </div>
                       <div className="my-2 flex items-center  sm:justify-start">
-                        <img className="me-4 w-10" src={house} alt="my country" />
+                        <img
+                          className="me-4 w-10"
+                          src={house}
+                          alt="my country"
+                        />
                         <p>Cieszyn, Polska</p>
                       </div>
                     </div>
