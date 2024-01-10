@@ -1,8 +1,8 @@
 <table align="center">
     <tr>
         <td>
-            <a align="center" href="https://github.com/Manioo77/Sklep-it_STELA/commits/main">
-                <img src="https://img.shields.io/github/last-commit/Manioo77/Sklep-it_STELA"  alt=""/>
+            <a align="center" href="https://github.com/Manioo77/My-Portfolio/commits/main">
+                <img src="https://img.shields.io/github/last-commit/Manioo77/My-Portfolio"  alt=""/>
             </a>
         </td>
     </tr>
