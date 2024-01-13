@@ -1,6 +1,9 @@
+import i18next from "i18next";
 import myPhotoFirst from "../assets/myPhotoFirst.png";
+import { useTranslation } from "react-i18next";
 
 export function MainSection() {
+  const { t } = useTranslation();
   return (
     <section
       id="home"
@@ -14,22 +17,23 @@ export function MainSection() {
         />
         <div className=" p-5 text-center text-black md:w-1/2 md:text-left xl:w-2/3 dark:text-white">
           <h1 className="pb-3 text-4xl font-bold leading-tight lg:text-5xl 2xl:text-6xl">
-            Cześć, jestem <br />
+            {t("welcome")} <br />
             <span className="text-emerald-900">Marek Mańka</span>
           </h1>
           <p className="text-justify text-lg leading-relaxed">
-            Moją wielką pasją jest tworzenie stron internetowych. Jako junior
-            frontend developer zajmuję się nieustannie fascynującymi wyzwaniami,
-            które nie tylko absorbują moją uwagę, lecz również przynoszą mi
-            ogromną satysfakcję.
+            {t("description")}
           </p>
           <div className="flex justify-center md:justify-start">
             <a
-              href="CV_Marek_Mańka.pdf"
+              href={` ${
+                i18next.resolvedLanguage === "pl"
+                  ? "CV_Marek_Mańka.pdf"
+                  : "EN_CV_Marek_Mańka.pdf"
+              }`}
               download
-              className="my-6 flex h-11 w-48 items-center justify-center rounded-full bg-emerald-900 text-white transition-colors hover:bg-emerald-950"
+              className="my-6 flex h-11 w-48 items-center justify-center rounded-full bg-emerald-900 uppercase text-white transition-colors hover:bg-emerald-950"
             >
-              Pobierz CV
+              {t("downloadCv")}
             </a>
           </div>
         </div>

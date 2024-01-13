@@ -8,8 +8,10 @@ import linkedin from "../assets/linkedin.png";
 import facebook from "../assets/facebook.png";
 import { useState } from "react";
 import { MobileMenuButton } from "./MobileMenuButton";
+import { useTranslation } from "react-i18next";
 
-export function Header({ handleChangeTheme, theme }) {
+export function Header({ handleChangeTheme, theme, lngs }) {
+  const { t, i18n } = useTranslation();
   const [mobileMenu, setMobileMenu] = useState(false);
 
   return (
@@ -43,7 +45,7 @@ export function Header({ handleChangeTheme, theme }) {
                     className="text-2xl uppercase text-neutral-200 no-underline transition-colors hover:text-emerald-900 dark:text-neutral-900"
                     href="#about"
                   >
-                    o mnie
+                    <p>{t("aboutMe")}</p>
                   </a>
                 </li>
                 <li className="mb-3">
@@ -51,7 +53,7 @@ export function Header({ handleChangeTheme, theme }) {
                     className="text-2xl uppercase text-neutral-200  no-underline transition-colors hover:text-emerald-900 dark:text-neutral-900"
                     href="#projects"
                   >
-                    projekty
+                    <p>{t("projects")}</p>
                   </a>
                 </li>
                 <li className="mb-3">
@@ -59,7 +61,7 @@ export function Header({ handleChangeTheme, theme }) {
                     className="text-2xl uppercase text-neutral-200  no-underline transition-colors hover:text-emerald-900 dark:text-neutral-900"
                     href="#contact"
                   >
-                    Kontakt
+                    <p>{t("contact")}</p>
                   </a>
                 </li>
               </ul>
@@ -123,6 +125,19 @@ export function Header({ handleChangeTheme, theme }) {
                       />
                     )}
                   </li>
+                  <li className="m-3 mx-5 w-full max-w-7 cursor-pointer">
+                    {Object.keys(lngs).map((lng) => (
+                      <button
+                        type="submit"
+                        key={lng}
+                        onClick={() => i18n.changeLanguage(lng)}
+                        disabled={i18n.resolvedLanguage === lng}
+                        className="text-neutral-200 transition-colors hover:text-emerald-900 disabled:hidden dark:text-neutral-900"
+                      >
+                        {lngs[lng].nativeName}
+                      </button>
+                    ))}
+                  </li>
                 </ul>
               </div>
             </nav>
@@ -144,7 +159,7 @@ export function Header({ handleChangeTheme, theme }) {
                     className="uppercase text-black no-underline transition-colors hover:text-emerald-900 dark:text-white"
                     href="#about"
                   >
-                    o mnie
+                    <p>{t("aboutMe")}</p>
                   </a>
                 </li>
                 <li className="mr-5">
@@ -152,7 +167,7 @@ export function Header({ handleChangeTheme, theme }) {
                     className="uppercase text-black  no-underline transition-colors hover:text-emerald-900 dark:text-white"
                     href="#projects"
                   >
-                    projekty
+                    <p>{t("projects")}</p>
                   </a>
                 </li>
                 <li className="mr-5">
@@ -160,7 +175,7 @@ export function Header({ handleChangeTheme, theme }) {
                     className="uppercase text-black  no-underline transition-colors hover:text-emerald-900 dark:text-white"
                     href="#contact"
                   >
-                    Kontakt
+                    <p>{t("contact")}</p>
                   </a>
                 </li>
               </ul>
@@ -170,7 +185,7 @@ export function Header({ handleChangeTheme, theme }) {
             </div>
             <div>
               <ul className="flex ">
-                <li className="mr-5 w-full max-w-5 lg:max-w-6">
+                <li className="mr-3 flex w-full max-w-5 items-center md:mr-5 lg:max-w-6">
                   <a
                     href="https://github.com/Manioo77"
                     target="_blank"
@@ -183,7 +198,7 @@ export function Header({ handleChangeTheme, theme }) {
                     />
                   </a>
                 </li>
-                <li className=" mr-5 w-full max-w-5 lg:max-w-6">
+                <li className="mr-3 flex w-full  max-w-5 items-center md:mr-5 lg:max-w-6">
                   <a
                     href="https://www.linkedin.com/in/marek-manka/"
                     target="_blank"
@@ -196,7 +211,7 @@ export function Header({ handleChangeTheme, theme }) {
                     />
                   </a>
                 </li>
-                <li className=" mr-5 w-full max-w-5 lg:max-w-6">
+                <li className="mr-3  flex w-full max-w-5 items-center md:mr-5 lg:max-w-6">
                   <a
                     href="https://www.facebook.com/marek.manka.9?locale=pl_PL"
                     target="_blank"
@@ -211,7 +226,7 @@ export function Header({ handleChangeTheme, theme }) {
                 </li>
                 <li
                   onClick={handleChangeTheme}
-                  className={`w-full max-w-5 cursor-pointer lg:max-w-6`}
+                  className="mr-3 flex w-full max-w-5 cursor-pointer items-center md:mr-5 lg:max-w-6"
                 >
                   {theme === "dark" ? (
                     <img
@@ -226,6 +241,19 @@ export function Header({ handleChangeTheme, theme }) {
                       alt="moon"
                     />
                   )}
+                </li>
+                <li>
+                  {Object.keys(lngs).map((lng) => (
+                    <button
+                      type="submit"
+                      key={lng}
+                      onClick={() => i18n.changeLanguage(lng)}
+                      disabled={i18n.resolvedLanguage === lng}
+                      className="transition-colors hover:text-emerald-900 disabled:hidden dark:text-neutral-200"
+                    >
+                      {lngs[lng].nativeName}
+                    </button>
+                  ))}
                 </li>
               </ul>
             </div>

@@ -6,9 +6,16 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { useEffect, useState } from "react";
 import { AboutMeSection } from "./components/AboutmeSection";
+import { useTranslation } from "react-i18next";
+
+const lngs = {
+  en: { nativeName: "EN" },
+  pl: { nativeName: "PL" },
+};
 
 function App() {
   const [theme, setTheme] = useState("light");
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     if (theme === "dark") {
@@ -24,7 +31,12 @@ function App() {
 
   return (
     <>
-      <Header handleChangeTheme={handleChangeTheme} theme={theme} />
+      <Header
+        translation={(t, i18n)}
+        handleChangeTheme={handleChangeTheme}
+        theme={theme}
+        lngs={lngs}
+      />
       <MainSection />
       <AboutMeSection />
       <Projects />

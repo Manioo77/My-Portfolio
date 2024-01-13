@@ -7,6 +7,7 @@ import sklep from "../assets/sklep.png";
 import todolist from "../assets/toDo.png";
 import code from "../assets/icons/code.png";
 import eye from "../assets/icons/eye.png";
+import { useTranslation } from "react-i18next";
 
 const URL = "https://api.github.com/users/manioo77/repos";
 
@@ -38,6 +39,7 @@ const REPOS = [
 ];
 
 export function Projects() {
+  const { t } = useTranslation();
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
@@ -61,7 +63,7 @@ export function Projects() {
       >
         <div className="flex min-h-screen  max-w-screen-xl  flex-col justify-center px-4 pt-28 sm:w-9/12 2xl:w-full">
           <div className="mb-10">
-            <h1 className="mb-2 text-4xl">Projekty</h1>
+            <h1 className="mb-2 text-4xl capitalize">{t("projects")}</h1>
             <div className="h-1 w-2/5 bg-gradient-to-r from-emerald-900"></div>
           </div>
           <div className="flex w-full flex-wrap items-stretch justify-between">
@@ -74,7 +76,7 @@ export function Projects() {
                     key={project.id}
                     className="relative my-2 w-full md:m-1 md:w-5/12"
                   >
-                    <div className="bg-black-rgba absolute bottom-0 flex h-1/5 w-full items-center  justify-between rounded-xl  text-white">
+                    <div className="absolute bottom-0 flex h-1/5 w-full items-center justify-between  rounded-xl bg-black-rgba  text-white">
                       <div>
                         <a
                           href={project.html_url}

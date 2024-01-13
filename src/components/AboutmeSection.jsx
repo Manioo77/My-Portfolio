@@ -7,12 +7,13 @@ import phone from "../assets/icons/phone.png";
 import birthday from "../assets/icons/birthday.png";
 import house from "../assets/icons/house.png";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const INFO = "Informacje";
 const EXP = "Doświadczenie";
 const SKILLS = "Umiejętności";
 
-const SKILLSTECH = [
+const TECHSKILLS = [
   "React, Next",
   "JavaScript, ES6, Typescript",
   "HTML, CSS, SASS",
@@ -24,20 +25,20 @@ const SKILLSTECH = [
   "Figma, Photoshop",
   "SQL",
   "Jira/Asana/Confluence",
-  "Kodowanie Maili",
 ];
 
-const SKILLSSOFT = [
-  "Motywowanie zespołu do osiągania celów",
-  "Zaangażowanie i chęć rozwoju zawodowego",
-  "Kreatywność",
-  "Umiejętność pracy w zespole",
-  "Punktualność i elastyczność",
-  "Logiczne myślenie",
+const SOFTSKILLS = [
+  "softSkill1",
+  "softSkill2",
+  "softSkill3",
+  "softSkill4",
+  "softSkill5",
+  "softSkill6",
 ];
 
 export function AboutMeSection() {
   const [option, setOption] = useState(INFO);
+  const { t } = useTranslation();
 
   return (
     <>
@@ -46,7 +47,7 @@ export function AboutMeSection() {
         className="flex w-full justify-center bg-neutral-200 text-black dark:bg-neutral-900 dark:text-white"
       >
         <div className="flex min-h-screen w-full max-w-screen-xl flex-col justify-center px-4 sm:w-9/12 2xl:w-full">
-          <h1 className="mb-2 text-4xl">O mnie</h1>
+          <h1 className="mb-2 pt-5 text-4xl capitalize">{t("aboutMe")}</h1>
           <div className="h-1 w-2/5 bg-gradient-to-r from-emerald-900"></div>
           <div className="flex w-full  max-w-screen-xl flex-wrap  items-center justify-center">
             <div className="my-10 flex w-full justify-around rounded-full border border-black  dark:border-white">
@@ -54,36 +55,33 @@ export function AboutMeSection() {
                 onClick={() => setOption(INFO)}
                 className={`rounded-full px-1 py-2 sm:p-3 ${
                   option === INFO ? "bg-emerald-900 text-white" : ""
-                } w-4/12 text-xs sm:text-base`}
+                } w-4/12 text-xs capitalize sm:text-base`}
               >
-                Informacje
+                {t("information")}
               </button>
 
               <button
                 onClick={() => setOption(EXP)}
                 className={`rounded-full px-1 py-2 sm:p-3 ${
                   option === EXP ? "bg-emerald-900 text-white" : ""
-                } w-4/12 text-xs sm:text-base`}
+                } w-4/12 text-xs capitalize sm:text-base`}
               >
-                Doświadczenie
+                {t("experience")}
               </button>
               <button
                 onClick={() => setOption(SKILLS)}
                 className={`rounded-full px-1 py-2 sm:p-3 ${
                   option === SKILLS ? "bg-emerald-900 text-white" : ""
-                } w-4/12 text-xs sm:text-base`}
+                } w-4/12 text-xs capitalize sm:text-base`}
               >
-                Umiejętności
+                {t("skills")}
               </button>
             </div>
             <div className="w-full md:w-4/6">
               {option === INFO && (
                 <>
                   <p className="text-md w-full text-justify leading-relaxed md:pe-4 xl:w-4/5">
-                    Koder webowy z pasją do piłki nożnej, siłowni i podróży.
-                    Uwielbiam filmy i górskie wędrówki. Lubie pracować w
-                    zespole, ale daj mi chwilę samotności na moje kreatywne
-                    popisy. Zawsze uśmiechnięty i gotów na nowe wyzwania!
+                    {t("descInformation")}
                   </p>
 
                   <div className="mt-4 flex w-full flex-wrap items-center justify-center xl:w-4/5">
@@ -103,8 +101,8 @@ export function AboutMeSection() {
                           alt="education"
                         />
                         <p>
-                          Master of Computer Science <br />
-                          Bachelor of Computer Science
+                          {t("educationMaster")} <br />
+                          {t("educationBachelor")}
                         </p>
                       </div>
                       <div className="my-2 flex items-center  sm:justify-start">
@@ -120,8 +118,8 @@ export function AboutMeSection() {
                           alt="languages"
                         />
                         <p>
-                          Angielski: B2 <br />
-                          Polski: Native
+                          {t("polishLanguage")} <br />
+                          {t("englishLanguage")}
                         </p>
                       </div>
                       <div className="my-2 flex items-center  sm:justify-start">
@@ -138,7 +136,7 @@ export function AboutMeSection() {
                           src={house}
                           alt="my country"
                         />
-                        <p>Cieszyn, Polska</p>
+                        <p>Cieszyn, {t("country")}</p>
                       </div>
                     </div>
                   </div>
@@ -150,41 +148,35 @@ export function AboutMeSection() {
                     <h2 className="mb-1 text-xl font-bold uppercase text-emerald-900">
                       salesmanago
                     </h2>
-                    <h3 className="ms-4">JUNIOR FRONT-END DEVELOPER</h3>
+                    <h3 className="ms-4 uppercase">
+                      junior front-end developer
+                    </h3>
                     <p className="mb-4 ms-4 text-xs md:pe-4 md:text-sm">
-                      Kodowanie formularzy/ maili/ landing page/ skryptów
-                      dedykowanych. Testy manualne.
+                      {t("workFrontend")}
                     </p>
-                    <h3 className="ms-4">CX & MARKETING AUTOMATION ENGINEER</h3>
+                    <h3 className="ms-4 uppercase">
+                      cx & marketing automation engineer
+                    </h3>
                     <p className="mb-3 ms-4 text-xs md:pe-4 md:text-sm">
-                      Wspieranie klientów SALESmanago, oraz pracowników działu
-                      Success w określonych kwestiach związanych z działaniem
-                      wybranych funkcjonalności na stronie klienta - skracanie
-                      czasu oczekiwania na wdrożenie funkcjonalności, kodowanie
-                      HTML i CSS (maili, landing page, itd.), wsparcie w
-                      wdrożeniach.
+                      {t("workEngineer")}
                     </p>
                   </div>
                   <div className="text-jusify mb-4 xl:w-4/5">
-                    <h2 className="mb-1 text-xl font-bold uppercase text-emerald-900">
+                    <h2 className="mb-1 text-xl font-bold uppercase text-emerald-900 ">
                       haevo
                     </h2>
-                    <h3 className="ms-4">Serwisant sprzętu komputerowego</h3>
-                    <p className="mb-3 ms-4 text-xs md:pe-4 md:text-sm">
-                      Przyjmowanie komputerów od klientów, kontakt z klientem,
-                      drobne naprawy i serwis sprzętu komputerowego.
+                    <h3 className="ms-4 uppercase">{t("haevo")}</h3>
+                    <p className="mb-3 ms-4 text-xs md:pe-4 md:text-sm ">
+                      {t("workHaevo")}
                     </p>
                   </div>
                   <div className="text-jusify mb-4 xl:w-4/5">
                     <h2 className="mb-1 text-xl font-bold uppercase text-emerald-900 ">
                       ppg cieszyn
                     </h2>
-                    <h3 className="ms-4">
-                      Laborant kontroli jakości i kolorysta{" "}
-                    </h3>
+                    <h3 className="ms-4 uppercase">{t("ppg")}</h3>
                     <p className="mb-3 ms-4 text-xs md:pe-4 md:text-sm">
-                      Wykonywanie badań produkowanych wyrobów, bieżące
-                      prowadzenie dokumentacji badań, analiza wyników.
+                      {t("workPpg")}
                     </p>
                   </div>
                 </>
@@ -194,27 +186,28 @@ export function AboutMeSection() {
                   <div className="mt-4 flex w-full flex-wrap justify-between px-5 text-left sm:px-0 xl:w-4/5">
                     <div className="flex w-full flex-col pb-5 sm:w-1/2 sm:pb-0">
                       <h2 className="mb-5 text-xl font-bold uppercase text-emerald-900">
-                        Techniczne
+                        {t("techSkills")}
                       </h2>
                       <ul>
-                        {SKILLSTECH.map((SKILLTECH) => {
+                        {TECHSKILLS.map((SKILLTECH) => {
                           return (
                             <li key={SKILLTECH} className="mb-1 ms-4">
                               {SKILLTECH}
                             </li>
                           );
                         })}
+                        <li className="mb-1 ms-4">{t("techSkill1")}</li>
                       </ul>
                     </div>
                     <div className="flex w-full flex-col sm:w-1/2">
                       <h2 className="mb-5 text-xl font-bold uppercase text-emerald-900">
-                        miękkie
+                        {t("softSkills")}
                       </h2>
                       <ul>
-                        {SKILLSSOFT.map((SKILLSOFT) => {
+                        {SOFTSKILLS.map((softSkill) => {
                           return (
-                            <li className="mb-1 ms-4 md:pe-4" key={SKILLSOFT}>
-                              {SKILLSOFT}
+                            <li className="mb-1 ms-4 md:pe-4" key={softSkill}>
+                              {t(softSkill)}
                             </li>
                           );
                         })}
